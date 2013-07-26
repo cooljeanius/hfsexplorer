@@ -1,6 +1,8 @@
 ACLOCAL_AMFLAGS = -I m4
 
-ant: 
+ant: build.xml
 	@ANT@
 
-all:	ant
+all:	ant buildall.sh
+
+.PHONY: all ant
