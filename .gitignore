@@ -1,0 +1,14 @@
+*.log
+*.cache
+*~
+*.o
+*.lo
+*libs/*.*
+config.h
+*.status
+Makefile
+*.exe
+dist/*
+*.jar
+stamp-h*
+libtool
