@@ -17,5 +17,6 @@ libtool
 conftest*
 confdefs*
 Test.java
+src*/*/*deps/*
 
 # jars in `./lib/` are vendored in, so do NOT gitignore them

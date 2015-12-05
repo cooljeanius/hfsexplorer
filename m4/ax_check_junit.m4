@@ -45,12 +45,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CHECK_JUNIT], [AX_CHECK_JUNIT])
 AC_DEFUN([AX_CHECK_JUNIT],[
 AC_CACHE_VAL(ac_cv_prog_JUNIT,[
-AC_CHECK_CLASS(junit.textui.TestRunner)
+AX_CHECK_CLASS([junit.textui.TestRunner])
 if test x"`eval 'echo $ac_cv_class_junit_textui_TestRunner'`" != xno ; then
   ac_cv_prog_JUNIT='$(CLASSPATH_ENV) $(JAVA) $(JAVAFLAGS) junit.textui.TestRunner'
 fi])

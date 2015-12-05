@@ -54,10 +54,11 @@
 #   A Web page, with a link to the latest CVS snapshot is at
 #   <http://www.internatif.org/bortzmeyer/autoconf-Java/>.
 #
-#   This is a sample configure.in Process this file with autoconf to produce
+#   This is a sample configure.ac Process this file with autoconf to produce
 #   a configure script.
 #
-#     AC_INIT(UnTag.java)
+#     AC_INIT
+#     AC_CONFIG_SRCDIR([UnTag.java])
 #
 #     dnl Checks for programs.
 #     AC_CHECK_CLASSPATH
@@ -68,7 +69,8 @@
 #     AX_CHECK_RQRD_CLASS(org.xml.sax.Parser)
 #     AX_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
 #
-#     AC_OUTPUT(Makefile)
+#     AC_CONFIG_FILES([Makefile])
+#     AC_OUTPUT
 #
 # LICENSE
 #
@@ -100,7 +102,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_PROG_JAVA], [AX_PROG_JAVA])
 AC_DEFUN([AX_PROG_JAVA],[
