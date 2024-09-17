@@ -3,8 +3,8 @@
 <project basedir="." default="all" name="HFSExplorer">
   <property environment="env"/>
   <property name="debuglevel" value="source,lines,vars"/>
-  <property name="java.target.level" value="1.6"/>
-  <property name="java.source.level" value="1.6"/>
+  <property name="java.target.level" value="1.8"/>
+  <property name="java.source.level" value="1.8"/>
   <property name="java.source.dir" value="src"/>
   <property name="manifest.source.dir" value="src.META-INF"/>
   <!--<property name="builddir" value=".build~"/>-->

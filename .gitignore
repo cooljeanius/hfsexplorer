@@ -1,6 +1,7 @@
 *.log
 *.cache
 *~
+*.swp
 *.o
 *.lo
 *libs/*.*
