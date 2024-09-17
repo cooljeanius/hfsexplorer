@@ -1,7 +1,17 @@
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
-# Copyright (C) 2001-2014 Free Software Foundation, Inc.
+# ===========================================================================
+#   https://www.gnu.org/software/autoconf-archive/ax_try_compile_java.html
+# ===========================================================================
 #
-# This file is free software; the Free Software Foundation
+# SYNOPSIS
+#
+#   AX_TRY_COMPILE_JAVA
+#
+# DESCRIPTION
+#
+#   AX_TRY_COMPILE_JAVA attempt to compile user given source.
+#
+#   *Warning*: its success or failure can depend on a proper setting of the
+#   CLASSPATH env. variable.
 #
 #   Note: This is part of the set of autoconf M4 macros for Java programs.
 #   It is VERY IMPORTANT that you download the whole set, some macros depend
@@ -19,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 AU_ALIAS([AC_TRY_COMPILE_JAVA], [AX_TRY_COMPILE_JAVA])
 AC_DEFUN([AX_TRY_COMPILE_JAVA],[
@@ -38,9 +48,8 @@ dnl Don't remove the temporary files here, so they can be examined.
 else
   echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
   cat Test.java >&AS_MESSAGE_LOG_FD
-ifelse([$4], , , [  rm -fr Test*
+ifelse([$4], , , [  rm -f Test.java Test.class
   $4
 ])dnl
 fi
-rm -fr Test*])
-
+rm -f Test.java Test.class])

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_prog_java.html
+#       https://www.gnu.org/software/autoconf-archive/ax_prog_java.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -54,11 +54,10 @@
 #   A Web page, with a link to the latest CVS snapshot is at
 #   <http://www.internatif.org/bortzmeyer/autoconf-Java/>.
 #
-#   This is a sample configure.ac Process this file with autoconf to produce
+#   This is a sample configure.in Process this file with autoconf to produce
 #   a configure script.
 #
-#     AC_INIT
-#     AC_CONFIG_SRCDIR([UnTag.java])
+#     AC_INIT(UnTag.java)
 #
 #     dnl Checks for programs.
 #     AC_CHECK_CLASSPATH
@@ -69,8 +68,7 @@
 #     AX_CHECK_RQRD_CLASS(org.xml.sax.Parser)
 #     AX_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
 #
-#     AC_CONFIG_FILES([Makefile])
-#     AC_OUTPUT
+#     AC_OUTPUT(Makefile)
 #
 # LICENSE
 #
@@ -87,7 +85,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -102,16 +100,16 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_PROG_JAVA], [AX_PROG_JAVA])
 AC_DEFUN([AX_PROG_JAVA],[
-if test x$JAVAPREFIX = x; then
-        test x$JAVA = x && AC_CHECK_PROGS(JAVA, kaffe java)
-else
-        test x$JAVA = x && AC_CHECK_PROGS(JAVA, kaffe java, $JAVAPREFIX)
-fi
+m4_define([m4_ax_prog_java_list], [kaffe java])dnl
+AS_IF([test "x$JAVAPREFIX" = x],
+      [test x$JAVA = x && AC_CHECK_PROGS([JAVA], [m4_ax_prog_java_list])],
+      [test x$JAVA = x && AC_CHECK_PROGS([JAVA], [m4_ax_prog_java_list], [], [$JAVAPREFIX/bin])])
 test x$JAVA = x && AC_MSG_ERROR([no acceptable Java virtual machine found in \$PATH])
+m4_undefine([m4_ax_prog_java_list])dnl
 AX_PROG_JAVA_WORKS
 AC_PROVIDE([$0])dnl
 ])
