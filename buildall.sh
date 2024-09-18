@@ -27,7 +27,7 @@ decrement_buildnumber() {
 
 antbuild() {
     echo "Building with ant..."
-    ant build-all
+    ant build-all || ant build-jparted || ant javadoc
     return $?
 }
 

@@ -17,6 +17,22 @@ AC_EXEEXT
 # Checks for programs.
 AC_MSG_NOTICE([checks for programs are next])
 AM_PROG_AR
+if test "x${AR}" = "x"; then
+  test -z "${AR}" || unset AR
+  AC_CHECK_TOOLS([AR],[ar gar])dnl
+  ## might want to switch around these checks...
+  if test "x${ac_cv_prog_AR}" = "x"; then
+    test -z "${ac_cv_prog_AR}" || unset ac_cv_prog_AR
+    m4_ifdef([AC_PROG_AR],[
+      AC_PROG_AR
+    ],[
+      test -x "`which ar`" && echo "first ar in path is `which ar`"
+    ])dnl
+    ## preceding 'ar' macro is new in autoconf 2.71 or 2.72; not sure which...
+  fi
+else
+  test -n "${AR}" && export AR
+fi
 if test "x${CC}" = "x"; then
   test -z "${CC}" || unset CC
   AC_PROG_CC
@@ -59,8 +75,8 @@ LT_LANG([Java])dnl
 AC_MSG_NOTICE([C header checks are next])
 AC_HEADER_STDBOOL dnl# also "_CHECK"s it
 AC_CHECK_HEADERS([firefox/jni.h java/jni.h JavaVM/jni.h jni.h jni/jni.h \
-                  malloc.h malloc/malloc.h stdio.h vm-jni.h \
-                  windows.h windows/windows.h wine/windows/windows.h])dnl
+                  malloc.h malloc/malloc.h tchar.h vm-jni.h windows.h \
+                  windows/windows.h wine/windows/windows.h winioctl.h])dnl
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_MSG_NOTICE([additional C checks are next])
